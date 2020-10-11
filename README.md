@@ -2,10 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Installation
 
-Use the package manager npm to install json-server for serve API to the web application.
+In the project directory, use the package manager npm to install [json-server](https://www.npmjs.com/package/json-server) and [axios](https://www.npmjs.com/package/axios).
 
 ```bash
 npm install -g json-server
+npm install --save axios
 ```
 
 ## Run json-server
@@ -17,8 +18,7 @@ json-server --watch resources/data/db.json --port 3001
 ```
 
 Resources
-[http://localhost:3001/products](http://localhost:3001/products)
-[http://localhost:3001/orders](http://localhost:3001/orders)
+[http://localhost:3001/products](http://localhost:3001/products), [http://localhost:3001/orders](http://localhost:3001/orders)
 
 ## Available Scripts
 
