@@ -18,10 +18,7 @@ class App extends Component {
     //     this.setState({ products: res });
     //   });
     Axios.get('http://localhost:3001/products').then((res) => {
-      console.log(res.data);
-      {
-        this.setState({ products: res.data });
-      }
+      this.setState({ products: res.data });
     });
   }
 
