@@ -1,8 +1,28 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation
+
+Use the package manager npm to install json-server for serve API to the web application.
+
+```bash
+npm install -g json-server
+```
+
+## Run json-server
+
+In the project directory, and run:
+
+```bash
+json-server --watch resources/data/db.json --port 3001
+```
+
+Resources
+[http://localhost:3001/products](http://localhost:3001/products)
+[http://localhost:3001/orders](http://localhost:3001/orders)
+
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can run on new terminal:
 
 ### `npm start`
 
