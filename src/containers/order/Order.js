@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import Axios from 'axios';
 
 class Order extends Component {
@@ -63,12 +61,10 @@ class Order extends Component {
   render() {
     return (
       <div>
-        <Header />
         <div className="container-fluid">
           <h1>รายการสั่งซื้อ</h1>
           <div className="row">{this.showOrders()}</div>
         </div>
-        <Footer company="Developed with Mind" email="contact@devwithmind.com" />
       </div>
     );
   }
