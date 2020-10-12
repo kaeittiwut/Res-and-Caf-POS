@@ -1,12 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and the purpose of this development is for learning React in particular, references from Olanlab.
 
 ## Installation
 
-In the project directory, use the package manager npm to install [json-server](https://www.npmjs.com/package/json-server) and [axios](https://www.npmjs.com/package/axios).
+In the project directory, use the package manager npm to install [json-server](https://www.npmjs.com/package/json-server).
 
 ```bash
-npm install -g json-server
-npm install --save axios
+sudo npm install -g json-server
 ```
 
 ## Run json-server
@@ -23,6 +22,8 @@ Resources
 ## Available Scripts
 
 In the project directory, you can run on new terminal:
+
+### `npm install`
 
 ### `npm start`
 
