@@ -23,13 +23,13 @@ class Header extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-8 text-left">
+          <div className="col text-left">
             <h3 className="text-success">
               <img style={{ height: 70 }} src="/images/logo/logo.png" alt="" />
               Res &amp; Caf
             </h3>
           </div>
-          <div className="col-md-4 text-right">
+          <div className="col text-right">
             <h6 className="text-muted mt-4">
               {this.state.date.toLocaleDateString() +
                 ' ' +
