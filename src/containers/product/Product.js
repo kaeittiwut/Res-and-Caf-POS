@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
 import ProductList from '../../components/product/ProductList';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { productDelete, productsFetch } from '../../actions';
 
 class Product extends Component {
   constructor(props) {
     super(props);
-    this.state = { products: null };
     this.delProduct = this.delProduct.bind(this);
     this.editProduct = this.editProduct.bind(this);
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:3001/products').then((res) => {
-      this.setState({ products: res.data });
-    });
+    this.props.productsFetch();
   }
 
   delProduct(product) {
-    Axios.delete('http://localhost:3001/products/' + product.id).then((res) => {
-      Axios.get('http://localhost:3001/products').then((res) => {
-        this.setState({ products: res.data });
-      });
-    });
+    this.props.productDelete(product.id);
   }
 
   editProduct(product) {
@@ -46,15 +40,23 @@ class Product extends Component {
               </button>
             </div>
           </div>
-          <ProductList
-            products={this.state.products}
-            onDelProduct={this.delProduct}
-            onEditProduct={this.editProduct}
-          />
+          {this.props.products && Array.isArray(this.props.products) && (
+            <ProductList
+              products={this.props.products}
+              onDelProduct={this.delProduct}
+              onEditProduct={this.editProduct}
+            />
+          )}
         </div>
       </div>
     );
   }
 }
 
-export default withRouter(Product);
+function mapStateToProps({ products }) {
+  return { products };
+}
+
+export default withRouter(
+  connect(mapStateToProps, { productsFetch, productDelete })(Product)
+);

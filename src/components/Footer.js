@@ -6,12 +6,13 @@ const Footer = (props) => {
   return (
     <div className="container-fluid">
       <hr />
-      <div className="text-center title text-uppercase">
+      <div className="col text-center title text-uppercase">
         <small>
           <span className="text-danger"> {company} </span>|
           <span className="text-muted"> {email}</span>
         </small>
       </div>
+      <br />
     </div>
   );
 };

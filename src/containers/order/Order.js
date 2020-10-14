@@ -1,30 +1,20 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
+import { connect } from 'react-redux';
+import { ordersFetch, orderDelete } from '../../actions';
 
 class Order extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { orders: null };
-  }
-
   componentDidMount() {
-    Axios.get('http://localhost:3001/orders').then((res) => {
-      this.setState({ orders: res.data });
-    });
+    this.props.ordersFetch();
   }
 
   delOrder(order) {
-    Axios.delete('http://localhost:3001/orders/' + order.id).then((res) => {
-      Axios.get('http://localhost:3001/orders').then((res) => {
-        this.setState({ orders: res.data });
-      });
-    });
+    this.props.orderDelete(order.id);
   }
 
   showOrders() {
     return (
-      this.state.orders &&
-      this.state.orders.map((order) => {
+      this.props.orders &&
+      this.props.orders.map((order) => {
         const date = new Date(order.orderDate);
         return (
           <div key={order.id} className="col-md-3">
@@ -70,4 +60,8 @@ class Order extends Component {
   }
 }
 
-export default Order;
+function mapStateToProps({ orders }) {
+  return { orders };
+}
+
+export default connect(mapStateToProps, { ordersFetch, orderDelete })(Order);
