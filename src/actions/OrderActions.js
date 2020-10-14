@@ -3,7 +3,7 @@ import { ORDERS_FETCH } from './types';
 
 export const ordersFetch = () => {
   return (dispatch) => {
-    Axios.get('http://localhost:3001/orders').then((res) => {
+    Axios.get(process.env.REACT_APP_API_URL + '/orders').then((res) => {
       dispatch({ type: ORDERS_FETCH, payload: res.data });
     });
   };
@@ -11,10 +11,12 @@ export const ordersFetch = () => {
 
 export const orderDelete = (id) => {
   return (dispatch) => {
-    Axios.delete('http://localhost:3001/orders/' + id).then((res) => {
-      Axios.get('http://localhost:3001/orders').then((res) => {
-        dispatch({ type: ORDERS_FETCH, payload: res.data });
-      });
-    });
+    Axios.delete(process.env.REACT_APP_API_URL + '/orders/' + id).then(
+      (res) => {
+        Axios.get(process.env.REACT_APP_API_URL + '/orders').then((res) => {
+          dispatch({ type: ORDERS_FETCH, payload: res.data });
+        });
+      }
+    );
   };
 };
